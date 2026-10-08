@@ -377,7 +377,7 @@ app.post('/api/complaints/:id/comments', async (req, res) => {
 app.get('/api/users/staff', async (req, res) => {
   try {
     const pool = getPool();
-    const [rows] = await pool.query('SELECT id, username, role FROM users WHERE role = "admin"');
+    const [rows] = await pool.query("SELECT id, username, role FROM users WHERE role = 'admin'");
     res.status(200).json(rows);
   } catch (error) {
     console.error(error);
@@ -391,9 +391,9 @@ cron.schedule('* * * * *', async () => {
     const pool = getPool();
     
     // 1. SLA Escalation
-    const [slaRows] = await pool.query('SELECT * FROM complaints WHERE status IN ("open", "in_progress") AND sla_deadline < NOW() AND escalation_level = 0');
+    const [slaRows] = await pool.query("SELECT * FROM complaints WHERE status IN ('open', 'in_progress') AND sla_deadline < NOW() AND escalation_level = 0");
     for (let complaint of slaRows) {
-      await pool.query('UPDATE complaints SET status = "escalated", escalation_level = 1 WHERE id = ?', [complaint.id]);
+      await pool.query("UPDATE complaints SET status = 'escalated', escalation_level = 1 WHERE id = ?", [complaint.id]);
       await pool.query('INSERT INTO activity_logs (id, complaint_id, action, performed_by) VALUES (?, ?, ?, ?)', [
         crypto.randomUUID(), complaint.id, `SLA Breached! Status escalated.`, 'System'
       ]);
@@ -401,9 +401,9 @@ cron.schedule('* * * * *', async () => {
     }
 
     // 2. Auto-Reassignment Logic (If assigned but open for > 2 hours)
-    const [reassignRows] = await pool.query('SELECT * FROM complaints WHERE status = "open" AND assigned_to IS NOT NULL AND updated_at < NOW() - INTERVAL 2 HOUR');
+    const [reassignRows] = await pool.query("SELECT * FROM complaints WHERE status = 'open' AND assigned_to IS NOT NULL AND updated_at < NOW() - INTERVAL 2 HOUR");
     for (let complaint of reassignRows) {
-      await pool.query('UPDATE complaints SET assigned_to = ?, status = "in_progress" WHERE id = ?', ['System Auto-Escalation Team', complaint.id]);
+      await pool.query("UPDATE complaints SET assigned_to = ?, status = 'in_progress' WHERE id = ?", ['System Auto-Escalation Team', complaint.id]);
       await pool.query('INSERT INTO activity_logs (id, complaint_id, action, performed_by) VALUES (?, ?, ?, ?)', [
         crypto.randomUUID(), complaint.id, `Auto-reassigned due to staff inactivity`, 'System'
       ]);
@@ -418,5 +418,6 @@ cron.schedule('* * * * *', async () => {
 const PORT = process.env.PORT || 5000;
 
 initDB().then(() => {
-  app.listen(PORT, () => console.log(`Server running on port ${PORT} (Using MySQL)`));
+  const dbType = process.env.DATABASE_URL ? 'Neon PostgreSQL' : 'Local MySQL';
+  app.listen(PORT, () => console.log(`Campus-Eye Server running on port ${PORT} (${dbType})`));
 });

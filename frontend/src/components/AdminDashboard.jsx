@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { formatDistanceToNow, isPast } from 'date-fns';
 import { 
   AlertTriangle, BarChart2, AlertCircle, CheckCircle, Clock, MapPin, Search, Filter, 
@@ -84,7 +84,7 @@ export default function AdminDashboard({ user }) {
 
   const fetchNlpStats = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/nlp/stats');
+      const res = await api.get('/api/nlp/stats');
       setNlpStats(res.data);
     } catch (err) {
       console.error(err);
@@ -95,7 +95,7 @@ export default function AdminDashboard({ user }) {
     e.preventDefault();
     if (!customTrainText.trim()) return;
     try {
-      const res = await axios.post('http://localhost:5000/api/nlp/train', {
+      const res = await api.post('/api/nlp/train', {
         text: customTrainText.trim(),
         category: customTrainCategory,
         priority: customTrainPriority
@@ -112,7 +112,7 @@ export default function AdminDashboard({ user }) {
 
   const fetchComplaints = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/complaints');
+      const res = await api.get('/api/complaints');
       setComplaints(res.data);
     } catch (err) {
       console.error(err);
@@ -121,7 +121,7 @@ export default function AdminDashboard({ user }) {
 
   const fetchStaff = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/users/staff');
+      const res = await api.get('/api/users/staff');
       setStaffList(res.data);
     } catch (err) {
       console.error(err);
@@ -137,7 +137,7 @@ export default function AdminDashboard({ user }) {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.patch(`http://localhost:5000/api/complaints/${id}`, { status: newStatus, user_id: 'admin' });
+      await api.patch(`/api/complaints/${id}`, { status: newStatus, user_id: 'admin' });
       fetchComplaints();
       if (selectedComplaint && selectedComplaint._id === id) {
         setSelectedComplaint({...selectedComplaint, status: newStatus});
@@ -150,7 +150,7 @@ export default function AdminDashboard({ user }) {
 
   const handleAssign = async (id, staffName) => {
     try {
-      await axios.patch(`http://localhost:5000/api/complaints/${id}`, { assigned_to: staffName, user_id: 'admin' });
+      await api.patch(`/api/complaints/${id}`, { assigned_to: staffName, user_id: 'admin' });
       fetchComplaints();
       if (selectedComplaint && selectedComplaint._id === id) {
         setSelectedComplaint({...selectedComplaint, assigned_to: staffName});
@@ -165,7 +165,7 @@ export default function AdminDashboard({ user }) {
     setSelectedComplaint(c);
     setOverridePriority(''); // reset
     try {
-      const res = await axios.get(`http://localhost:5000/api/complaints/${c._id}/timeline`);
+      const res = await api.get(`/api/complaints/${c._id}/timeline`);
       setTimeline(res.data);
     } catch (err) {
       console.error(err);
@@ -175,14 +175,14 @@ export default function AdminDashboard({ user }) {
   const handleOverride = async () => {
     if (!overridePriority || overridePriority === selectedComplaint.ai_priority) return;
     try {
-      await axios.post(`http://localhost:5000/api/complaints/${selectedComplaint._id}/override`, {
+      await api.post(`/api/complaints/${selectedComplaint._id}/override`, {
         new_priority: overridePriority,
         admin_user: user?.username || 'Admin'
       });
       fetchComplaints();
       setSelectedComplaint({...selectedComplaint, admin_priority: overridePriority, ai_priority: overridePriority});
       
-      const res = await axios.get(`http://localhost:5000/api/complaints/${selectedComplaint._id}/timeline`);
+      const res = await api.get(`/api/complaints/${selectedComplaint._id}/timeline`);
       setTimeline(res.data);
     } catch (err) {
       console.error(err);
@@ -219,12 +219,12 @@ export default function AdminDashboard({ user }) {
   const submitComment = async () => {
     if (!newComment.trim()) return;
     try {
-      await axios.post(`http://localhost:5000/api/complaints/${selectedComplaint._id}/comments`, {
+      await api.post(`/api/complaints/${selectedComplaint._id}/comments`, {
         message: newComment,
         user_id: 'Admin'
       });
       setNewComment('');
-      const res = await axios.get(`http://localhost:5000/api/complaints/${selectedComplaint._id}/timeline`);
+      const res = await api.get(`/api/complaints/${selectedComplaint._id}/timeline`);
       setTimeline(res.data);
     } catch (err) {
       console.error(err);

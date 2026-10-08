@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { X, Image as ImageIcon, UserCircle2 } from 'lucide-react';
 
 export default function ProfileModal({ user, onClose, onUpdate }) {
@@ -21,7 +21,7 @@ export default function ProfileModal({ user, onClose, onUpdate }) {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/users/${user.username}/profile`);
+        const res = await api.get(`/api/users/${user.username}/profile`);
         setProfileData({
           profile_pic: res.data.profile_pic || null,
           usn: res.data.usn || '',
@@ -62,7 +62,7 @@ export default function ProfileModal({ user, onClose, onUpdate }) {
     setSuccess('');
 
     try {
-      await axios.put(`http://localhost:5000/api/users/${user.username}/profile`, {
+      await api.put(`/api/users/${user.username}/profile`, {
         profile_pic: profileData.profile_pic,
         usn: profileData.usn,
         semester: profileData.semester,

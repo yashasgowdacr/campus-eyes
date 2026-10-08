@@ -4,7 +4,9 @@
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/Node.js-Express-339933?logo=node.js&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon_Cloud-336791?logo=postgresql&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-Frontend_Live-000000?logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-Backend_Live-46E3B7?logo=render&logoColor=black)
 ![NLP](https://img.shields.io/badge/AI-Natural_NLP_Engine-8B5CF6)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -127,5 +129,49 @@ Both servers will start concurrently:
 
 ---
 
+## 🌐 100% Free Live Cloud Deployment Guide
+
+Campus-Eye is pre-configured for instant zero-cost hosting using **Neon DB**, **Render**, and **Vercel**:
+
+```text
+[ Vercel (Frontend) ] ─── HTTPS API ───> [ Render (Backend) ] ─── SSL ───> [ Neon DB (PostgreSQL) ]
+```
+
+### 1️⃣ Step 1: Database Setup on Neon (PostgreSQL)
+1. Sign up for free at **[neon.tech](https://neon.tech)**.
+2. Click **Create Project** (Name: `campus-eye`).
+3. Copy the generated **Postgres Connection URI** (it looks like `postgresql://neondb_owner:PASSWORD@ep-xyz.us-east-2.aws.neon.tech/neondb?sslmode=require`).
+4. *That's it!* Campus-Eye automatically builds the entire relational schema and seeds default users on first boot.
+
+### 2️⃣ Step 2: Backend Web Service on Render
+1. Sign up for free at **[render.com](https://render.com)**.
+2. Click **New +** $\rightarrow$ **Web Service**.
+3. Connect your GitHub repository: `yashasgowdacr/Campus-Eye`.
+4. Configure settings:
+   - **Root Directory:** `backend`
+   - **Runtime:** `Node`
+   - **Build Command:** `npm install`
+   - **Start Command:** `npm start`
+5. Under **Environment Variables**, add:
+   - `PORT` = `5000`
+   - `DATABASE_URL` = *(Paste your Neon DB connection URI from Step 1)*
+6. Click **Deploy Web Service**.
+7. Once deployed, copy your Render Service URL (e.g., `https://campus-eye-backend.onrender.com`).
+
+### 3️⃣ Step 3: Frontend Web App on Vercel
+1. Sign up for free at **[vercel.com](https://vercel.com)**.
+2. Click **Add New...** $\rightarrow$ **Project**.
+3. Import your GitHub repository: `yashasgowdacr/Campus-Eye`.
+4. Configure settings:
+   - **Framework Preset:** `Vite`
+   - **Root Directory:** Edit and set to `frontend`
+5. Expand **Environment Variables** and add:
+   - `VITE_API_URL` = `https://your-backend-name.onrender.com` *(Your Render URL from Step 2, without a trailing slash)*
+6. Click **Deploy**.
+7. Your app is now **LIVE** on the internet! 🚀
+
+---
+
 ## 📄 License
 This project is licensed under the MIT License.
+

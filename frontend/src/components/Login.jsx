@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { User, Lock, LogIn, UserPlus } from 'lucide-react';
 
 export default function Login({ onLogin }) {
@@ -17,7 +17,7 @@ export default function Login({ onLogin }) {
 
     try {
       const endpoint = isRegistering ? '/api/users/register' : '/api/users/login';
-      const res = await axios.post(`http://localhost:5000${endpoint}`, { username, password });
+      const res = await api.post(endpoint, { username, password });
       
       const loggedUser = res.data;
       

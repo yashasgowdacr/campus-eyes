@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { Send, Image as ImageIcon, X, AlertTriangle, Clock, MapPin, User, CheckCircle, BarChart2, MessageSquare, Mic, MicOff, Copy } from 'lucide-react';
 import { formatDistanceToNow, isPast } from 'date-fns';
 
@@ -36,7 +36,7 @@ export default function StudentDashboard({ user }) {
 
   const fetchComplaints = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/complaints');
+      const res = await api.get('/api/complaints');
       // Filter only this student's complaints
       setComplaints(res.data.filter(c => c.registered_by === user.username));
     } catch (err) {
@@ -46,7 +46,7 @@ export default function StudentDashboard({ user }) {
 
   const fetchPoints = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/users/${user.username}/points`);
+      const res = await api.get(`/api/users/${user.username}/points`);
       setPoints(res.data.points);
     } catch (err) {
       console.error(err);
@@ -115,7 +115,7 @@ export default function StudentDashboard({ user }) {
     typingTimeoutRef.current = setTimeout(async () => {
       if (text.length > 10) {
         try {
-          const res = await axios.post('http://localhost:5000/api/analyze-complaint', { description: text });
+          const res = await api.post('/api/analyze-complaint', { description: text });
           setAiSuggestion(res.data);
         } catch (err) {
           console.error(err);
@@ -158,7 +158,7 @@ export default function StudentDashboard({ user }) {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/complaints', { 
+      await api.post('/api/complaints', { 
         title, 
         description,
         image_data: imageData,
@@ -187,7 +187,7 @@ export default function StudentDashboard({ user }) {
   const openComplaintDetail = async (c) => {
     setSelectedComplaint(c);
     try {
-      const res = await axios.get(`http://localhost:5000/api/complaints/${c._id}/timeline`);
+      const res = await api.get(`/api/complaints/${c._id}/timeline`);
       setTimeline(res.data);
     } catch (err) {
       console.error(err);
@@ -197,13 +197,13 @@ export default function StudentDashboard({ user }) {
   const submitComment = async () => {
     if (!newComment.trim()) return;
     try {
-      await axios.post(`http://localhost:5000/api/complaints/${selectedComplaint._id}/comments`, {
+      await api.post(`/api/complaints/${selectedComplaint._id}/comments`, {
         message: newComment,
         user_id: user.username
       });
       setNewComment('');
       // Refresh timeline
-      const res = await axios.get(`http://localhost:5000/api/complaints/${selectedComplaint._id}/timeline`);
+      const res = await api.get(`/api/complaints/${selectedComplaint._id}/timeline`);
       setTimeline(res.data);
     } catch (err) {
       console.error(err);
