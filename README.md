@@ -1,196 +1,141 @@
 # 👁️ Campus-Eye
-> **Next-Generation Smart Campus Grievance Intelligence & Autonomous Facilities Surveillance Command Center**
+> **Autonomous Smart Campus Grievance Intelligence & Facilities Surveillance Command Center**
 
 [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-campus--eyes--w82a.vercel.app-00df9a?style=for-the-badge&logo=vercel&logoColor=white)](https://campus-eyes-w82a.vercel.app/)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yashasgowdacr/campus-eyes)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-campus--eyes-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yashasgowdacr/campus-eyes)
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/Node.js-Express-339933?logo=node.js&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon_Cloud-336791?logo=postgresql&logoColor=white)
-[![Vercel](https://img.shields.io/badge/Vercel-Live_Deployment-000000?logo=vercel&logoColor=white)](https://campus-eyes-w82a.vercel.app/)
-![Render](https://img.shields.io/badge/Render-Backend_Live-46E3B7?logo=render&logoColor=black)
+[![Vercel](https://img.shields.io/badge/Vercel-Live-000000?logo=vercel&logoColor=white)](https://campus-eyes-w82a.vercel.app/)
+![Render](https://img.shields.io/badge/Render-Live-46E3B7?logo=render&logoColor=black)
 ![NLP](https://img.shields.io/badge/AI-Natural_NLP_Engine-8B5CF6)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## 🌐 Live Production Application
+## 🌐 Live Access & Demo Credentials
 
-<div align="center">
+Access the live cloud deployment directly in your browser:  
+👉 **[https://campus-eyes-w82a.vercel.app/](https://campus-eyes-w82a.vercel.app/)**
 
-### 🚀 **[👉 Click Here to Launch Campus-Eye Live on Vercel 👈](https://campus-eyes-w82a.vercel.app/)**
-**URL:** [https://campus-eyes-w82a.vercel.app/](https://campus-eyes-w82a.vercel.app/)
-
-| 🖥️ Portal | 👤 Username | 🔑 Password | 🛡️ Role & Capabilities |
+| Portal | Username | Password | Role & Permissions |
 | :--- | :--- | :--- | :--- |
-| **[Admin Command Center](https://campus-eyes-w82a.vercel.app/)** | `admin` | `admin` | Full Incident Surveillance, Heatmap, SLA Radar, AI Retraining |
-| **[Student Portal](https://campus-eyes-w82a.vercel.app/)** | `student` | `student123` | Complaint Submission, Voice-to-Text, Live AI Urgency Preview |
+| **[Admin Command Center](https://campus-eyes-w82a.vercel.app/)** | `admin` | `admin` | Operations HUD, Heatmaps, Urgency Radar, SLA Escalations, AI Model Training |
+| **[Student Portal](https://campus-eyes-w82a.vercel.app/)** | `student` | `student123` | Complaint Submission, Voice Input, Real-Time AI Suggestion, Profile Points |
 
-</div>
-
----
-
-## 🌟 Overview
-
-**Campus-Eye** is an intelligent, full-stack campus operations and grievance surveillance platform designed for universities and modern institutions. It bridges the gap between student complaints and facilities resolution through automated **NLP text classification**, **real-time SLA breach countdowns**, **dynamic incident triage**, and a **cybernetic operations command center**.
-
-Unlike legacy ticketing systems, **Campus-Eye** functions with **zero external API costs ($0)** by running a localized statistical NLP engine (Multinomial Naive Bayes + Porter Stemmer) that automatically categorizes issues, scores emotional urgency, and calculates SLA risk thresholds.
+*(New student accounts can also be created instantly via the Register tab).*
 
 ---
 
-## 🚀 Key Highlights & Architecture
+## 🏛️ System Architecture
 
-### 🧠 1. Localized Campus-Eye NLP Intelligence Engine
-- **Zero-Cost Operation:** No external cloud bills or quota limits. Runs locally in Node.js with < 50MB RAM footprint.
-- **Statistical Naive Bayes Classifier:** Tokenizes and stems words down to root forms (`PorterStemmer`) trained on 150+ campus-specific incident records.
-- **Multi-Factor Domain Categorization:**
-  - 🚨 `Emergency` (Fire, chemical spills, safety hazards)
-  - ⚡ `Electrical` (Power outages, MCB trips, AC failures)
-  - 🌐 `Network` (Campus Wi-Fi, DNS, captive portal, packet drops)
-  - 🚰 `Plumbing` (Pipeline bursts, water contamination, washroom fixtures)
-  - 🎓 `Academic` (Projectors, classroom sound, interactive smartboards)
-  - 🧹 `Housekeeping` (Hygiene, sanitation, pest control)
-  - 🍱 `Hostel & Mess` (Food quality, laundry automation, room access)
-  - 🛡️ `Security & Infra` (CCTV blindspots, turnstiles, road safety)
-- **Sentiment & Urgency Scoring:** Detects critical urgency tokens (`urgent`, `asap`, `exam tomorrow`), uppercase shouting, and punctuation intensity to auto-boost priority.
-- **Dynamic Continual Learning:** Administrators can feed custom training samples and override classifications on the fly.
+Campus-Eye operates on a high-availability, zero-cost cloud architecture:
 
-### ⚡ 2. Urgent Dispatch Radar (Telemetry HUD)
-- **Live Radar Beacon:** Pulsing telemetry indicator monitoring real-time campus risk.
-- **Dynamic SLA Countdown Clocks:** Displays relative time remaining or imminent escalation warnings (`⏱️ 42m remaining` / `⚠️ Breached`).
-- **One-Click Incident Triage:** Direct modal access for instant technician assignment and administrative priority override.
+```mermaid
+graph TD
+    subgraph Client Layer
+        A["🌐 Vercel SPA (React 18 + Vite)"]
+    end
 
-### 🔥 3. Zone Problem Heatmap (Dual View)
-- **Density Grid Matrix:** Clean, non-overlapping progress tracks color-coded by severity (`High`, `Moderate`, `Low`).
-- **Interactive Zone Filtering:** Click any campus building in the heatmap to isolate complaints in the command center.
-- **Hotspot Bar Chart:** Visualizes top incident-heavy blocks with gradient density meters.
+    subgraph API & Intelligence Layer
+        B["⚡ Render Web Service (Node.js + Express)"]
+        C["🧠 Local NLP Engine (Naive Bayes + Stemmer)"]
+        D["⏱️ Autonomous SLA Cron Worker"]
+        B <--> C
+        B <--> D
+    end
 
-### ⏱️ 4. Autonomous SLA Engine & Cron Escalations
-- Automated background worker (`node-cron`) checks ticket SLA deadlines every minute.
-- Automatically marks breached tickets as `escalated` and logs system activity.
-- Auto-reassigns unresolved tickets if staff inactivity exceeds threshold.
+    subgraph Data Layer
+        E[("🐘 Neon DB (Serverless PostgreSQL)")]
+        F[("🐬 Local MySQL (Development Fallback)")]
+        B <--> E
+        B -.-> F
+    end
+
+    A -- "HTTPS / REST API" --> B
+```
+
+- **Frontend (Vercel):** Single-page application built with React 18, Vite, Lucide Icons, and Recharts.
+- **Backend (Render):** Express API providing complaint triage, live timeline auditing, and continual NLP training.
+- **AI Intelligence ($0 Cost):** Offline statistical NLP classifier (Multinomial Naive Bayes + Porter Stemmer) running in-memory with < 50MB RAM footprint.
+- **Database (Neon DB / PostgreSQL):** Dual-engine connection pool supporting cloud serverless PostgreSQL with automatic schema migration and fallback to local MySQL.
+
+---
+
+## 🔄 Workflow Steps Taken to Build Campus-Eye
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Student
+    participant UI as Student Portal
+    participant API as Express API
+    participant NLP as Natural NLP Engine
+    participant DB as Neon Database
+    participant Cron as SLA Background Worker
+    actor Admin as Facilities Admin
+
+    Student->>UI: Types complaint description (or uses voice-to-text)
+    UI->>NLP: Real-time debounced analysis
+    NLP-->>UI: Live category, priority score & explanation preview
+    Student->>UI: Submits ticket with location (Block/Floor/Room) & photo
+    UI->>API: POST /api/complaints
+    API->>NLP: Classifies domain & emotional urgency tokens
+    API->>DB: Stores ticket + calculates SLA deadline timestamp
+    Admin->>API: Opens Command Center / Urgent Dispatch Radar
+    API->>Admin: Telemetry HUD, zone heatmap & active tickets
+    Admin->>API: Assigns technician or overrides priority
+    Cron->>DB: Checks tickets every minute for breach threshold
+    Cron->>DB: Auto-escalates breached tickets & updates activity audit logs
+```
+
+### 1. Ingestion & Multi-Modal Input
+Students register grievances via text or browser voice-to-text, attaching location metadata (Block, Floor, Room) and optional image evidence.
+
+### 2. Live Zero-Cost AI Classification
+As the student types, the localized NLP engine analyzes linguistic tokens, evaluates urgency triggers (`fire`, `urgent`, `asap`, `leak`), scores sentiment, and recommends the category and priority in real-time.
+
+### 3. Dynamic Incident Triage & Telemetry Radar
+Submitted grievances enter the Command Center with SLA countdown clocks (`⏱️ 42m remaining` / `⚠️ Breached`). Critical incidents are highlighted on the pulsing Urgent Dispatch Radar.
+
+### 4. Zone Hotspot Heatmap
+Facilities managers visualize issue density across campus blocks in real-time, allowing maintenance teams to address root-cause infrastructure failures before escalating.
+
+### 5. Autonomous SLA Worker & Audit Trail
+A background worker (`node-cron`) audits active tickets every 60 seconds. Breached deadlines are automatically flagged as `escalated`, auto-reassigned if inactive, and permanently recorded in immutable activity logs.
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **Frontend:** React 18, Vite, Recharts, Lucide Icons, Date-fns, Vanilla Modern CSS (Glassmorphism & Cyberpunk Dark Mode).
-- **Backend:** Node.js, Express, `mysql2`, `natural` (NLP library), `node-cron`, `dotenv`.
-- **Database:** MySQL 8.0 (Relational schema with activity logs, feedback tables, and automated migrations).
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | React 18, Vite, Lucide Icons, Recharts, Date-fns, Vanilla Modern CSS |
+| **Backend** | Node.js, Express, `node-cron`, `cors`, `dotenv` |
+| **AI / NLP** | `natural` (Multinomial Naive Bayes, Porter Stemmer, Tokenizer) — $0 API cost |
+| **Database** | PostgreSQL (Neon Cloud) / MySQL 8.0, connection pooling, automated schema migration |
+| **Hosting** | Vercel (Frontend SPA) + Render (Backend Web Service) |
 
 ---
 
-## ⚡ Quick Start
-
-### 1. Prerequisites
-- **Node.js** (v18+)
-- **MySQL Server** running locally or in cloud (Port 3306)
-
-### 2. Database Configuration
-Create a `.env` file in the `backend/` directory (or copy `backend/.env.example`):
-
-```env
-PORT=5000
-DB_HOST=127.0.0.1
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=smart_complaints
-DB_PORT=3306
-```
-
-### 3. One-Command Launch
-Run the provided unified startup script:
+## ⚡ Quick Local Launch
 
 ```bash
+# 1. Clone repository
+git clone https://github.com/yashasgowdacr/campus-eyes.git
+cd campus-eyes
+
+# 2. Start both frontend & backend with one command
 chmod +x run.sh
 ./run.sh
 ```
 
-Both servers will start concurrently:
-- 🌐 **Frontend App:** [http://localhost:5173](http://localhost:5173)
-- 🔌 **Backend API:** [http://localhost:5000](http://localhost:5000)
-
----
-
-## 🔐 Default Credentials
-
-| Role | Username | Password | Access Level |
-| :--- | :--- | :--- | :--- |
-| **Admin** | `admin` | `admin` | Full Campus-Eye Operations Command Center, Heatmaps, Analytics, Dispatch |
-| **Student** | `student` | `student123` | Student Complaint Portal, Voice-to-Text, Real-time AI Preview |
-
-*(New student accounts can also be created via the Register tab on the UI).*
-
----
-
-## 📂 Project Structure
-
-```text
-├── backend/
-│   ├── nlp/
-│   │   ├── nlpEngine.js        # Naive Bayes classifier & sentiment analyzer
-│   │   └── trainingData.js     # 150+ curated domain incident samples
-│   ├── db.js                   # Dual-engine connection pool & automatic table schema migrator
-│   └── server.js               # Express REST API & cron workers
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── AdminDashboard.jsx    # Campus-Eye Command Center, Heatmap & Radar
-│   │   │   ├── StudentDashboard.jsx  # Student filing portal & live AI suggestion HUD
-│   │   │   ├── Login.jsx             # Dual-role authentication screen
-│   │   │   └── ProfileModal.jsx      # Student profile & points gamification
-│   │   ├── App.jsx
-│   │   └── index.css                 # Glassmorphic design tokens & animations
-└── run.sh                            # One-click startup runner
-```
-
----
-
-## 🌐 100% Free Live Cloud Deployment Guide
-
-Campus-Eye is pre-configured for instant zero-cost hosting using **Neon DB**, **Render**, and **Vercel**:
-
-```text
-[ Vercel (Frontend) ] ─── HTTPS API ───> [ Render (Backend) ] ─── SSL ───> [ Neon DB (PostgreSQL) ]
-```
-
-### 1️⃣ Step 1: Database Setup on Neon (PostgreSQL)
-1. Sign up for free at **[neon.tech](https://neon.tech)**.
-2. Click **Create Project** (Name: `campus-eye`).
-3. Copy the generated **Postgres Connection URI** (it looks like `postgresql://neondb_owner:PASSWORD@ep-xyz.us-east-2.aws.neon.tech/neondb?sslmode=require`).
-4. *That's it!* Campus-Eye automatically builds the entire relational schema and seeds default users on first boot.
-
-### 2️⃣ Step 2: Backend Web Service on Render
-1. Sign up for free at **[render.com](https://render.com)**.
-2. Click **New +** $\rightarrow$ **Web Service**.
-3. Connect your GitHub repository: `<your-username>/campus-eyes`.
-4. Configure settings:
-   - **Root Directory:** `backend`
-   - **Runtime:** `Node`
-   - **Build Command:** `npm install`
-   - **Start Command:** `npm start`
-5. Under **Environment Variables**, add:
-   - `PORT` = `5000`
-   - `DATABASE_URL` = *(Paste your Neon DB connection URI from Step 1)*
-6. Click **Deploy Web Service**.
-7. Once deployed, copy your Render Service URL (e.g., `https://campus-eye-backend.onrender.com`).
-
-### 3️⃣ Step 3: Frontend Web App on Vercel
-1. Sign up for free at **[vercel.com](https://vercel.com)**.
-2. Click **Add New...** $\rightarrow$ **Project**.
-3. Import your GitHub repository: `<your-username>/campus-eyes`.
-4. Configure settings:
-   - **Framework Preset:** `Vite`
-   - **Root Directory:** Edit and set to `frontend`
-5. Expand **Environment Variables** and add:
-   - `VITE_API_URL` = `https://your-backend-name.onrender.com` *(Your Render URL from Step 2, without a trailing slash)*
-6. Click **Deploy**.
-7. Your app is now **LIVE** on the internet! 🚀  
-   👉 **Live Production URL:** **[https://campus-eyes-w82a.vercel.app/](https://campus-eyes-w82a.vercel.app/)**
+- **Frontend App:** [http://localhost:5173](http://localhost:5173)
+- **Backend API:** [http://localhost:5000](http://localhost:5000)
 
 ---
 
 ## 📄 License
-This project is licensed under the MIT License.
-
+MIT License
