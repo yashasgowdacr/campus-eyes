@@ -1,14 +1,33 @@
 # 👁️ Campus-Eye
 > **Next-Generation Smart Campus Grievance Intelligence & Autonomous Facilities Surveillance Command Center**
 
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-campus--eyes--w82a.vercel.app-00df9a?style=for-the-badge&logo=vercel&logoColor=white)](https://campus-eyes-w82a.vercel.app/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yashasgowdacr/Campus-Eye)
+
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/Node.js-Express-339933?logo=node.js&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon_Cloud-336791?logo=postgresql&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-Frontend_Live-000000?logo=vercel&logoColor=white)
+[![Vercel](https://img.shields.io/badge/Vercel-Live_Deployment-000000?logo=vercel&logoColor=white)](https://campus-eyes-w82a.vercel.app/)
 ![Render](https://img.shields.io/badge/Render-Backend_Live-46E3B7?logo=render&logoColor=black)
 ![NLP](https://img.shields.io/badge/AI-Natural_NLP_Engine-8B5CF6)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
+---
+
+## 🌐 Live Production Application
+
+<div align="center">
+
+### 🚀 **[👉 Click Here to Launch Campus-Eye Live on Vercel 👈](https://campus-eyes-w82a.vercel.app/)**
+**URL:** [https://campus-eyes-w82a.vercel.app/](https://campus-eyes-w82a.vercel.app/)
+
+| 🖥️ Portal | 👤 Username | 🔑 Password | 🛡️ Role & Capabilities |
+| :--- | :--- | :--- | :--- |
+| **[Admin Command Center](https://campus-eyes-w82a.vercel.app/)** | `admin` | `admin` | Full Incident Surveillance, Heatmap, SLA Radar, AI Retraining |
+| **[Student Portal](https://campus-eyes-w82a.vercel.app/)** | `student` | `student123` | Complaint Submission, Voice-to-Text, Live AI Urgency Preview |
+
+</div>
 
 ---
 
@@ -167,7 +186,8 @@ Campus-Eye is pre-configured for instant zero-cost hosting using **Neon DB**, **
 5. Expand **Environment Variables** and add:
    - `VITE_API_URL` = `https://your-backend-name.onrender.com` *(Your Render URL from Step 2, without a trailing slash)*
 6. Click **Deploy**.
-7. Your app is now **LIVE** on the internet! 🚀
+7. Your app is now **LIVE** on the internet! 🚀  
+   👉 **Live Production URL:** **[https://campus-eyes-w82a.vercel.app/](https://campus-eyes-w82a.vercel.app/)**
 
 ---
 
