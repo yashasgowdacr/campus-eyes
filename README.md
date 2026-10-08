@@ -99,7 +99,7 @@ Both servers will start concurrently:
 | Role | Username | Password | Access Level |
 | :--- | :--- | :--- | :--- |
 | **Admin** | `admin` | `admin` | Full Campus-Eye Operations Command Center, Heatmaps, Analytics, Dispatch |
-| **Student** | `yashas` | `yashas` | Student Complaint Portal, Voice-to-Text, Real-time AI Preview |
+| **Student** | `student` | `student123` | Student Complaint Portal, Voice-to-Text, Real-time AI Preview |
 
 *(New student accounts can also be created via the Register tab on the UI).*
 
@@ -112,9 +112,8 @@ Both servers will start concurrently:
 │   ├── nlp/
 │   │   ├── nlpEngine.js        # Naive Bayes classifier & sentiment analyzer
 │   │   └── trainingData.js     # 150+ curated domain incident samples
-│   ├── db.js                   # MySQL connection pool & automatic table schema migrator
-│   ├── server.js               # Express REST API & cron workers
-│   └── seedComplaints.js       # Dataset generator across all 8 campus domains
+│   ├── db.js                   # Dual-engine connection pool & automatic table schema migrator
+│   └── server.js               # Express REST API & cron workers
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
@@ -146,7 +145,7 @@ Campus-Eye is pre-configured for instant zero-cost hosting using **Neon DB**, **
 ### 2️⃣ Step 2: Backend Web Service on Render
 1. Sign up for free at **[render.com](https://render.com)**.
 2. Click **New +** $\rightarrow$ **Web Service**.
-3. Connect your GitHub repository: `yashasgowdacr/Campus-Eye`.
+3. Connect your GitHub repository: `<your-username>/Campus-Eye`.
 4. Configure settings:
    - **Root Directory:** `backend`
    - **Runtime:** `Node`
@@ -161,7 +160,7 @@ Campus-Eye is pre-configured for instant zero-cost hosting using **Neon DB**, **
 ### 3️⃣ Step 3: Frontend Web App on Vercel
 1. Sign up for free at **[vercel.com](https://vercel.com)**.
 2. Click **Add New...** $\rightarrow$ **Project**.
-3. Import your GitHub repository: `yashasgowdacr/Campus-Eye`.
+3. Import your GitHub repository: `<your-username>/Campus-Eye`.
 4. Configure settings:
    - **Framework Preset:** `Vite`
    - **Root Directory:** Edit and set to `frontend`

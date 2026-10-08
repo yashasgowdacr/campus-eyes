@@ -109,11 +109,11 @@ async function initPostgres() {
     );
   }
 
-  const yashasCheck = await pgPool.query('SELECT id FROM users WHERE username = $1', ['yashas']);
-  if (yashasCheck.rows.length === 0) {
+  const studentCheck = await pgPool.query('SELECT id FROM users WHERE username = $1', ['student']);
+  if (studentCheck.rows.length === 0) {
     await pgPool.query(
       'INSERT INTO users (id, username, password, role) VALUES ($1, $2, $3, $4)',
-      [crypto.randomUUID(), 'yashas', 'yashas', 'student']
+      [crypto.randomUUID(), 'student', 'student123', 'student']
     );
   }
 
@@ -229,9 +229,9 @@ async function initMySQL() {
     await pool.query('INSERT INTO users (id, username, password, role) VALUES (?, ?, ?, ?)', [crypto.randomUUID(), 'admin', 'admin', 'admin']);
   }
   
-  const [yashasExists] = await pool.query('SELECT id FROM users WHERE username = ?', ['yashas']);
-  if (yashasExists.length === 0) {
-    await pool.query('INSERT INTO users (id, username, password, role) VALUES (?, ?, ?, ?)', [crypto.randomUUID(), 'yashas', 'yashas', 'student']);
+  const [studentExists] = await pool.query('SELECT id FROM users WHERE username = ?', ['student']);
+  if (studentExists.length === 0) {
+    await pool.query('INSERT INTO users (id, username, password, role) VALUES (?, ?, ?, ?)', [crypto.randomUUID(), 'student', 'student123', 'student']);
   }
 
   console.log('MySQL Database and tables initialized successfully');
