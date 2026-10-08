@@ -1,5 +1,5 @@
-# 🏫 CampusPulse-AI
-> **Next-Generation Smart Campus Grievance Intelligence & Autonomous SLA Operations Command Center**
+# 👁️ Campus-Eye
+> **Next-Generation Smart Campus Grievance Intelligence & Autonomous Facilities Surveillance Command Center**
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)
@@ -12,15 +12,15 @@
 
 ## 🌟 Overview
 
-**CampusPulse-AI** is a smart, full-stack campus operations and grievance management platform designed for universities and modern institutions. It bridges the gap between student complaints and facilities resolution through automated **NLP text classification**, **real-time SLA breach countdowns**, **dynamic incident triage**, and a **cybernetic operations command center**.
+**Campus-Eye** is an intelligent, full-stack campus operations and grievance surveillance platform designed for universities and modern institutions. It bridges the gap between student complaints and facilities resolution through automated **NLP text classification**, **real-time SLA breach countdowns**, **dynamic incident triage**, and a **cybernetic operations command center**.
 
-Unlike legacy ticketing systems, CampusPulse-AI functions with **zero external API costs ($0)** by running a localized statistical NLP engine (Multinomial Naive Bayes + Porter Stemmer) that automatically categorizes issues, scores emotional urgency, and calculates SLA risk thresholds.
+Unlike legacy ticketing systems, **Campus-Eye** functions with **zero external API costs ($0)** by running a localized statistical NLP engine (Multinomial Naive Bayes + Porter Stemmer) that automatically categorizes issues, scores emotional urgency, and calculates SLA risk thresholds.
 
 ---
 
 ## 🚀 Key Highlights & Architecture
 
-### 🧠 1. Localized NLP Intelligence Engine
+### 🧠 1. Localized Campus-Eye NLP Intelligence Engine
 - **Zero-Cost Operation:** No external cloud bills or quota limits. Runs locally in Node.js with < 50MB RAM footprint.
 - **Statistical Naive Bayes Classifier:** Tokenizes and stems words down to root forms (`PorterStemmer`) trained on 150+ campus-specific incident records.
 - **Multi-Factor Domain Categorization:**
@@ -32,10 +32,10 @@ Unlike legacy ticketing systems, CampusPulse-AI functions with **zero external A
   - 🧹 `Housekeeping` (Hygiene, sanitation, pest control)
   - 🍱 `Hostel & Mess` (Food quality, laundry automation, room access)
   - 🛡️ `Security & Infra` (CCTV blindspots, turnstiles, road safety)
-- **Sentiment & Urgency Scoring:** Detects critical urgency tokens (`urgent`, `asap`, `exam tomorrow`), uppercase yelling, and punctuation intensity to auto-boost priority.
+- **Sentiment & Urgency Scoring:** Detects critical urgency tokens (`urgent`, `asap`, `exam tomorrow`), uppercase shouting, and punctuation intensity to auto-boost priority.
 - **Dynamic Continual Learning:** Administrators can feed custom training samples and override classifications on the fly.
 
-### ⚡ 2. AI Urgent Dispatch Radar (Telemetry HUD)
+### ⚡ 2. Urgent Dispatch Radar (Telemetry HUD)
 - **Live Radar Beacon:** Pulsing telemetry indicator monitoring real-time campus risk.
 - **Dynamic SLA Countdown Clocks:** Displays relative time remaining or imminent escalation warnings (`⏱️ 42m remaining` / `⚠️ Breached`).
 - **One-Click Incident Triage:** Direct modal access for instant technician assignment and administrative priority override.
@@ -96,7 +96,7 @@ Both servers will start concurrently:
 
 | Role | Username | Password | Access Level |
 | :--- | :--- | :--- | :--- |
-| **Admin** | `admin` | `admin` | Full Operations Command Center, Heatmaps, Analytics, Dispatch |
+| **Admin** | `admin` | `admin` | Full Campus-Eye Operations Command Center, Heatmaps, Analytics, Dispatch |
 | **Student** | `yashas` | `yashas` | Student Complaint Portal, Voice-to-Text, Real-time AI Preview |
 
 *(New student accounts can also be created via the Register tab on the UI).*
@@ -116,7 +116,7 @@ Both servers will start concurrently:
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── AdminDashboard.jsx    # Operations Command Center, Heatmap & Radar
+│   │   │   ├── AdminDashboard.jsx    # Campus-Eye Command Center, Heatmap & Radar
 │   │   │   ├── StudentDashboard.jsx  # Student filing portal & live AI suggestion HUD
 │   │   │   ├── Login.jsx             # Dual-role authentication screen
 │   │   │   └── ProfileModal.jsx      # Student profile & points gamification

@@ -29,7 +29,9 @@ function App() {
           />
           <div className="text-2xl font-bold" style={{ lineHeight: '1.2' }}>
             <div>T John Institute of Technology</div>
-            <div className="text-accent" style={{ fontSize: '1rem', fontWeight: 'normal' }}>Smart Complaint Prioritization System</div>
+            <div className="text-accent" style={{ fontSize: '1rem', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span>👁️</span> Campus-Eye • Smart Operations & Grievance System
+            </div>
           </div>
         </div>
         

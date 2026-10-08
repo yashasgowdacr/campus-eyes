@@ -340,7 +340,7 @@ export default function StudentDashboard({ user }) {
                 <div style={{ padding: '1rem', background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '8px', fontSize: '0.875rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
                     <div>
-                      <strong>🤖 AI NLP Engine:</strong> This looks like a <span className={`badge ${(aiSuggestion.priority || 'Low').toLowerCase()}`} style={{ scale: '0.8', margin: '0 4px' }}>{aiSuggestion.priority}</span> priority issue in <strong>{aiSuggestion.category}</strong>.
+                      <strong>👁️ Campus-Eye AI:</strong> This looks like a <span className={`badge ${(aiSuggestion.priority || 'Low').toLowerCase()}`} style={{ scale: '0.8', margin: '0 4px' }}>{aiSuggestion.priority}</span> priority issue in <strong>{aiSuggestion.category}</strong>.
                     </div>
                     {aiSuggestion.confidence > 0 && (
                       <span style={{ background: 'rgba(16, 185, 129, 0.2)', color: '#34d399', padding: '2px 8px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 600 }}>

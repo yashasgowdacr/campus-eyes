@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "========================================="
-echo " Starting Smart Complaint System"
+echo " Starting Campus-Eye System"
 echo "========================================="
 
 # Attempt to load nvm if installed to ensure node/npm are in PATH

@@ -267,8 +267,10 @@ export default function AdminDashboard({ user }) {
     <div>
       <div className="dashboard-header-container">
         <div>
-          <h2 className="text-2xl" style={{ margin: 0 }}>Command Center</h2>
-          <div className="text-muted" style={{ fontSize: '1rem', marginTop: '4px' }}>Campus Operations & Maintenance</div>
+          <h2 className="text-2xl" style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span>👁️</span> Campus-Eye Command Center
+          </h2>
+          <div className="text-muted" style={{ fontSize: '1rem', marginTop: '4px' }}>Autonomous Campus Operations & Facilities Surveillance</div>
         </div>
         <div style={{ display: 'flex', gap: '0.75rem' }}>
           <button 
