@@ -2,7 +2,7 @@
 > **Next-Generation Smart Campus Grievance Intelligence & Autonomous Facilities Surveillance Command Center**
 
 [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-campus--eyes--w82a.vercel.app-00df9a?style=for-the-badge&logo=vercel&logoColor=white)](https://campus-eyes-w82a.vercel.app/)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yashasgowdacr/Campus-Eye)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yashasgowdacr/campus-eyes)
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)
@@ -164,7 +164,7 @@ Campus-Eye is pre-configured for instant zero-cost hosting using **Neon DB**, **
 ### 2️⃣ Step 2: Backend Web Service on Render
 1. Sign up for free at **[render.com](https://render.com)**.
 2. Click **New +** $\rightarrow$ **Web Service**.
-3. Connect your GitHub repository: `<your-username>/Campus-Eye`.
+3. Connect your GitHub repository: `<your-username>/campus-eyes`.
 4. Configure settings:
    - **Root Directory:** `backend`
    - **Runtime:** `Node`
@@ -179,7 +179,7 @@ Campus-Eye is pre-configured for instant zero-cost hosting using **Neon DB**, **
 ### 3️⃣ Step 3: Frontend Web App on Vercel
 1. Sign up for free at **[vercel.com](https://vercel.com)**.
 2. Click **Add New...** $\rightarrow$ **Project**.
-3. Import your GitHub repository: `<your-username>/Campus-Eye`.
+3. Import your GitHub repository: `<your-username>/campus-eyes`.
 4. Configure settings:
    - **Framework Preset:** `Vite`
    - **Root Directory:** Edit and set to `frontend`
